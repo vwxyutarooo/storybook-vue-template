@@ -9,11 +9,16 @@
   },
   "author": "vwxyutarooo",
   "license": "MIT",
-  "dependencies": {
-    "@storybook/vue": "^3.2.14"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vwxyutarooo/storybook-vue-template.git"
   },
-  "peerDependencies": {},
+  "dependencies": {},
+  "peerDependencies": {
+    "@storybook/vue": "*"
+  },
   "devDependencies": {
+    "@storybook/vue": "^3.2.14",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
