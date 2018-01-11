@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "build": "webpack --color --progress --config webpack.config.js",
+    "build:production": "NODE_ENV=production npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vwxyutarooo",
@@ -13,6 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/vwxyutarooo/storybook-vue-template.git"
   },
+  "files": [
+    "main.js",
+    "lib"
+  ],
   "dependencies": {},
   "peerDependencies": {
     "@storybook/vue": "*"
