@@ -8,7 +8,9 @@ module.exports = {
   entry: './lib/index.js',
   output: {
     path: __dirname,
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'storybook-vue-template',
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.json', '.js', '.vue']
