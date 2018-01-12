@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "",
   "main": "main.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "webpack --color --progress --config webpack.config.js",
     "build:production": "NODE_ENV=production npm run build",
@@ -19,7 +20,6 @@
     "lib",
     "types"
   ],
-  "types": "types/index.d.ts",
   "devDependencies": {
     "@storybook/vue": "^3.2.14",
     "babel-core": "^6.26.0",
