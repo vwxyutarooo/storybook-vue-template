@@ -18,14 +18,14 @@ storiesOf('Organisms', module).add('UserCardList', () => ({
 ### This is bit better 😐
 ```js
 import { storiesOf } from '@storybook/vue';
-import { parseStoryTemplate } from 'storybook-vue-template';
+import storybookVueTemplate from 'storybook-vue-template';
 
 import html from './index.html';
 
 
 let stories = storiesOf('Molecule', module);
 
-parseStoryTemplate(html, (key, template) => {
+storybookVueTemplate(html, (key, template) => {
   stories.add(key, () => ({
     template
   }));
@@ -51,7 +51,7 @@ parseStoryTemplate(html, (key, template) => {
 
 ## Useage
 ### Method
-`parseStoryTemplate(html, callback)`  
+`storybookVueTemplate(html, callback)`  
 
 
 ### setup storybook config
@@ -65,18 +65,14 @@ module.exports = (storybookBaseConfig) => {
   config.module.rules.push(
     {
       test: /\.html$/,
-      use: {
-        loader: 'html-loader'
-      }
+      loader: 'html-loader'
     },
     // if you'd like to use pug
     {
       test: /\.pug$/,
       use: [
-        {
-          loader: 'pug-loader',
-          options: { pretty: true }
-        }
+        { loader: 'html-loader' },
+        { loader: 'pug-html-loader' }
       ]
     }
   );
@@ -86,35 +82,19 @@ module.exports = (storybookBaseConfig) => {
 ```
 
 ```js
-// .storybook/config.js
-import Vue from 'vue';
-import { configure } from '@storybook/vue';
-
-import ButtonA from './button-a.vue';
-import ButtonB from './button-b.vue';
-
-Vue.component('button-a', ButtonA);
-Vue.component('button-b', ButtonB);
-
-function loadStories() {
-  require('../src/stories/buttons');
-}
-
-configure(loadStories, module);
-```
-
-```js
 // src/stories/buttons/index.js
 import { storiesOf } from '@storybook/vue';
-import { parseStoryTemplate } from 'storybook-vue-template';
+import storybookVueTemplate from 'storybook-vue-template';
 
 import html from './index.html';
+import * as components from 'place/to/component';
 
 
-let stories = storiesOf('Molecule', module);
+const stories = storiesOf('Molecule', module);
 
-parseStoryTemplate(html, (key, template) => {
+storybookVueTemplate(html, (key, template) => {
   stories.add(key, () => ({
+    components,
     template
   }));
 });
